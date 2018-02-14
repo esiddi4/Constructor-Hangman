@@ -21,7 +21,7 @@ function Word(currentWord) {
 		var display = "";
 
 		for (var i = 0; i < this.letters.length; i++) {
-			display += this.letters.renderLetters();
+			display += this.letters[i].renderLetters();
 		}
 
 		return display;
@@ -29,8 +29,11 @@ function Word(currentWord) {
 
 	// A function that takes a character as an argument and calls the guess function on each letter object
 	// (the second function defined in `Letter.js`)
-
-
+	this.myGuessWord = function(guess){
+		for (var i = 0; i < this.currentWord.length; i++) {
+			this.letters[i].isCorrect();
+		}
+	}
 }
 
 
