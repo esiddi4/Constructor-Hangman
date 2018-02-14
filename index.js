@@ -21,5 +21,29 @@ var wordBank = [
 	];
 
 // select a random word from word bank
-var selectedWord = new Word(wordBank[Math.floor(Math.random() * wordBank.length)]);
+function startGame() {
+	var guessesRemaining = 10;
+	var selectedWord = new Word(wordBank[Math.floor(Math.random() * wordBank.length)]);
+
+}
+
+
+
+inquirer.prompt([
+	{
+		name: "guess"
+		message: "Guess a letter!"
+	}
+]).then(function(guessRes){
+	
+	// if (guessRes) {}
+});
+
+
+// guess a letter
+// if correct, this.checkGuess
+
+
+
+
 
