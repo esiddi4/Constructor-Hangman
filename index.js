@@ -40,7 +40,7 @@ var game = {
 				type: "input"
 			}
 		]).then(function(guessRes){
-			var guess = guessRes.guess;
+			var guess = guessRes.guess.toLowerCase();
 			game.currentWord.checkGuess(guess);
 			game.currentWord.displayWord();
 			game.gameResult(guess);
@@ -68,7 +68,7 @@ var game = {
 		}
 
 		if (game.guessesRemaining === 0) {
-			console.log("\nOut of guesses! Try again.");
+			console.log("\nOut of guesses! Try a new word.");
 			game.initializeGame();
 		} else if (countCorrect === lettersArr.length) {
 			console.log("\nYou got it right! Next word!");
