@@ -1,16 +1,17 @@
 var Letter = require('./Letter.js');
 
-function Word(currentWord) {
+// Word constructor
+function Word(word) {
 	// stores current word
-	this.currentWord = currentWord;
+	this.word = word;
 	// array of `new` Letter objects representing the letters of the underlying word
 	this.letters = [];
 }
 
 // push new Letter objects to letters array
-Word.prototype.pushLetters = function(currentWord) {
-	for (var i = 0; i < this.currentWord.length; i++) {
-		this.letters.push(new Letter(this.currentWord[i]));
+Word.prototype.pushLetters = function(word) {
+	for (var i = 0; i < this.word.length; i++) {
+		this.letters.push(new Letter(this.word[i]));
 	}
 };
 
@@ -22,27 +23,14 @@ Word.prototype.displayWord = function() {
 		display += (this.letters[i].renderLetters());
 	}
 
-	return display;
+	console.log(display);
 }
 
 // A function that takes a character as an argument and calls the guess function on each letter object
 Word.prototype.checkGuess = function(guess){
-	for (var i = 0; i < this.currentWord.length; i++) {
+	for (var i = 0; i < this.word.length; i++) {
 		this.letters[i].isCorrect(guess);
 	}
 }
-
-
-
-
-
-
-
-
-
-// var gameWord = new Word("hello world");
-// gameWord.pushLetters();
-// gameWord.checkGuess("h");
-// console.log(gameWord.displayWord());
 
 module.exports = Word;
